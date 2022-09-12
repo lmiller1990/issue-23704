@@ -1,0 +1,29 @@
+name: Cypress-Workflow
+
+on:
+  workflow_dispatch:
+  push:
+
+env:
+  # Path to the solution file relative to the root of the project.
+  SOLUTION_FILE_PATH: ./Cypress
+  BUILD_PLATFORM: any cpu
+  BUILD_CONFIGURATION: Release
+
+jobs:
+  test-job:
+    name: Run Cypress Test - Run 1
+    runs-on: [self-hosted, AUENW01418FIT1]
+
+    env:
+      CYPRESS_VERIFY_TIMEOUT: 100000
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cypress tests
+        uses: cypress-io/github-action@v4
+        with:
+          working-directory: ${{GITHUB.WORKSPACE}}\Cypress
+          build: npx cypress run
