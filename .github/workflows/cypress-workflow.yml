@@ -22,8 +22,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+
+      - name: Print Env Variables
+        run: C:\Windows\System32\cmd.exe /c set        
+
       - name: Cypress tests
         uses: cypress-io/github-action@v4
         with:
-          working-directory: ${{GITHUB.WORKSPACE}}\Cypress
+          working-directory: ${{GITHUB.WORKSPACE}}
           build: npx cypress run
