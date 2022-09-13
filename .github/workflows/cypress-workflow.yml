@@ -13,7 +13,7 @@ env:
 jobs:
   test-job:
     name: Run Cypress Test - Run 1
-    runs-on: [self-hosted, AUENW01418FIT1]
+    runs-on: windows-2019
 
     env:
       CYPRESS_VERIFY_TIMEOUT: 100000
